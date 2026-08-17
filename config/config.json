@@ -1,0 +1,63 @@
+{
+  "model": {
+    "name": "yolov8s-worldv2.pt"
+  },
+  "detection": {
+    "confidence_threshold": 0.4,
+    "frame_interval": 5
+  },
+  "pipeline": {
+    "max_frames_per_camera": 500,
+    "max_retries": 3,
+    "queue_maxsize": 32,
+    "num_workers": 1,
+    "drop_frames_when_full": false,
+    "ordered_camera_processing": true
+  },
+  "output": {
+    "detections_dir": "results/detections",
+    "save_all_frames": false,
+    "selected_frames_per_identity": 1,
+    "log_file": "results/pipeline_events.jsonl",
+    "identity_audit_file": "results/identity_audit.jsonl",
+    "dashboard_file": "results/pipeline_monitoring_dashboard.png",
+    "identity_summary_file": "results/identity_summary.json",
+    "save_annotated_videos": false,
+    "annotated_video_dir": "results/annotated"
+  },
+  "input": {
+    "mode": "auto",
+    "video_dir": "videos",
+    "max_video_sources": 5,
+    "camera_indices": [
+      0
+    ]
+  },
+  "reid": {
+    "similarity_threshold": 0.7,
+    "review_margin": 0.04,
+    "deep_weight": 0.6,
+    "color_weight": 0.4,
+    "min_deep_similarity": 0.65,
+    "min_color_similarity": 0.62,
+    "min_candidate_margin": 0.05,
+    "update_alpha": 0.1,
+    "max_prototypes": 16,
+    "allow_same_camera_reid": true,
+    "observation_count": 4,
+    "observation_interval": 5,
+    "max_observations": 8,
+    "camera_thresholds": {
+      "2": 0.72,
+      "3": 0.84
+    },
+    "camera_deep_thresholds": {
+      "2": 0.7,
+      "3": 0.8
+    },
+    "duplicate_iou_threshold": 0.6,
+    "duplicate_containment_threshold": 0.9,
+    "audit_log_file": "results/identity_audit.jsonl",
+    "notes": "Root-caused from results/identity_audit.jsonl: Person_003's FIRST cam1->cam2 jump matched at color_similarity=0.59 (weak -- likely a different person), while Person_001's correct cam1->cam2 match had color_similarity=0.64. Once that weak Person_003 jump was accepted, its embedding entered the rolling prototype pool, so every later cam2 match compared against a contaminated (multi-person) pool and looked artificially confident. min_color_similarity (0.55->0.62) and camera_thresholds['2'] (0.68->0.72) were both set to sit strictly between 0.59 and 0.64/0.7369, blocking the contaminating first jump while leaving Person_001's real match untouched. If this still misfires, capture the exact frame + identity_audit.jsonl line for the wrong merge so the threshold can be re-targeted precisely instead of widening it blindly."
+  }
+}
