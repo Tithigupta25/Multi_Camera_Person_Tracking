@@ -1,17 +1,40 @@
 {
   "total_unique_identities": 5,
-  "cross_camera_identities": 0,
-  "cross_camera_matches": [],
+  "cross_camera_identities": 3,
+  "cross_camera_matches": [
+    {
+      "identity": "Person_001",
+      "cameras": [
+        1,
+        2
+      ]
+    },
+    {
+      "identity": "Person_002",
+      "cameras": [
+        1,
+        2
+      ]
+    },
+    {
+      "identity": "Person_003",
+      "cameras": [
+        1,
+        2
+      ]
+    }
+  ],
   "identities": {
     "Person_001": {
       "cameras": [
-        1
+        1,
+        2
       ],
-      "appearances": 1,
-      "best_similarity": 0.0,
+      "appearances": 2,
+      "best_similarity": 0.9347,
       "review_count": 0,
       "new_identity_count": 1,
-      "cross_camera_match_count": 0,
+      "cross_camera_match_count": 1,
       "matches": [
         {
           "camera_id": 1,
@@ -23,18 +46,30 @@
           "candidate_margin": 0.0,
           "status": "new_identity",
           "is_new_identity": true
+        },
+        {
+          "camera_id": 2,
+          "frame": 15,
+          "track_id": 2,
+          "similarity": 0.9347,
+          "deep_similarity": 0.9288,
+          "color_similarity": 0.9436,
+          "candidate_margin": 0.2171,
+          "status": "cross_camera_match",
+          "is_new_identity": false
         }
       ]
     },
     "Person_002": {
       "cameras": [
-        1
+        1,
+        2
       ],
-      "appearances": 1,
-      "best_similarity": 0.0,
+      "appearances": 2,
+      "best_similarity": 0.9027,
       "review_count": 0,
       "new_identity_count": 1,
-      "cross_camera_match_count": 0,
+      "cross_camera_match_count": 1,
       "matches": [
         {
           "camera_id": 1,
@@ -46,18 +81,30 @@
           "candidate_margin": 0.0,
           "status": "new_identity",
           "is_new_identity": true
+        },
+        {
+          "camera_id": 2,
+          "frame": 15,
+          "track_id": 1,
+          "similarity": 0.9027,
+          "deep_similarity": 0.8593,
+          "color_similarity": 0.968,
+          "candidate_margin": 0.1318,
+          "status": "cross_camera_match",
+          "is_new_identity": false
         }
       ]
     },
     "Person_003": {
       "cameras": [
-        1
+        1,
+        2
       ],
       "appearances": 2,
-      "best_similarity": 0.7521,
+      "best_similarity": 0.8275,
       "review_count": 0,
       "new_identity_count": 1,
-      "cross_camera_match_count": 0,
+      "cross_camera_match_count": 1,
       "matches": [
         {
           "camera_id": 1,
@@ -71,21 +118,21 @@
           "is_new_identity": true
         },
         {
-          "camera_id": 1,
-          "frame": 35,
-          "track_id": 5,
-          "similarity": 0.7521,
-          "deep_similarity": 0.7917,
-          "color_similarity": 0.6926,
-          "candidate_margin": 0.7521,
-          "status": "matched",
+          "camera_id": 2,
+          "frame": 15,
+          "track_id": 3,
+          "similarity": 0.8275,
+          "deep_similarity": 0.8175,
+          "color_similarity": 0.8425,
+          "candidate_margin": 0.8275,
+          "status": "cross_camera_match",
           "is_new_identity": false
         }
       ]
     },
     "Person_004": {
       "cameras": [
-        1
+        2
       ],
       "appearances": 1,
       "best_similarity": 0.0,
@@ -94,9 +141,9 @@
       "cross_camera_match_count": 0,
       "matches": [
         {
-          "camera_id": 1,
-          "frame": 20,
-          "track_id": 4,
+          "camera_id": 2,
+          "frame": 495,
+          "track_id": 6,
           "similarity": 0.0,
           "deep_similarity": 0.0,
           "color_similarity": 0.0,
@@ -111,7 +158,7 @@
         3
       ],
       "appearances": 1,
-      "best_similarity": 0.6464,
+      "best_similarity": 0.5888,
       "review_count": 0,
       "new_identity_count": 1,
       "cross_camera_match_count": 0,
@@ -120,10 +167,10 @@
           "camera_id": 3,
           "frame": 15,
           "track_id": 1,
-          "similarity": 0.6464,
-          "deep_similarity": 0.6519,
-          "color_similarity": 0.6382,
-          "candidate_margin": 0.0033,
+          "similarity": 0.5888,
+          "deep_similarity": 0.6718,
+          "color_similarity": 0.4643,
+          "candidate_margin": 0.0069,
           "status": "new_identity",
           "is_new_identity": true
         }
